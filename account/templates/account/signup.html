@@ -1,0 +1,26 @@
+{% extends "account/base.html" %}
+{% block title %}
+  {{ block.super }}
+{% endblock %}
+{% block content %}
+
+
+<div id="page-wrapper">
+    <div class="row">
+      <div class="col-lg-8">
+          <h1>Sign Up</h1>
+          <hr />
+          <form class="signup" id="signup_form" method="post" action="{% url 'account:signup' %}">
+            {% csrf_token %}
+            {{ form.as_p }}
+            {% if redirect_field_value %}
+            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+            {% endif %}
+            <button type="submit">Signup &raquo;</button>
+          </form>
+  
+      </div>
+        
+    </div>
+  </div>
+{% endblock %}

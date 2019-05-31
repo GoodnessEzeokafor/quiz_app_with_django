@@ -1,0 +1,21 @@
+{% extends 'account/base.html' %}
+{% block title %}
+    {{ block.super }} | result
+{% endblock %}
+
+
+{% block content %}
+<div id="page-wrapper">
+    <div class="row">
+        <div class="container-fluid">
+            <div class="row">
+
+            <h4>Name: {{ user.first_name }} {{user.last_name}}</h4>
+            <h3>Your Score: {{ total_right }} <small>out of {{ total_score}}</small></h3>
+            <h4>Total question failed: {{ wrong }}</h4>
+            <h4>Total score: {{ total_score_percent }}% <small>out of {{ total_percent }}</small></h4>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'account/base.html' %}
+{% block content %}
+<div id="page-wrapper">
+    <div class="row">
+        <h3>Thanks For Completing The Quiz</h3>
+        {% if messages %}
+            {% for msg in messages %}
+                <h3>{{ msg }}</h3>
+            {% endfor %}
+        {% endif %}
+        
+</div>
+{% endblock %}
+

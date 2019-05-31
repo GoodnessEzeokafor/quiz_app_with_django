@@ -1,0 +1,33 @@
+{% extends 'account/base.html' %}
+{% load crispy_forms_tags %}
+{% load markdown_deux_tags %}
+
+
+{% block content %}
+<div id="page-wrapper">
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-7" style="margin-top:100px;">
+                <div class="progress ">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="{{ progress }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ progress }}%"></div>
+                </div>
+                <h1 class="card-title">{{ quiz.name }}</h3>           
+                    {% for quest in total_questions %}
+                        {{ quest }}
+                    {% endfor %} 
+                {% if question %}
+            <div class="list-group">
+                <h3>{{ question.get_markdown|safe }} <small>Progress: {{ progress }}% out of 100</small></h3>
+                <form method="POST" novalidate>
+                        {% csrf_token %}
+                        {{ form|crispy }}
+                        <button type="submit" id="btn" class="btn">Next</button>
+                    </form>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+

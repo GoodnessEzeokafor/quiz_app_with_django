@@ -1,0 +1,27 @@
+{% extends 'account/base.html' %}
+{% block content %}
+<div id="page-wrapper">
+    <div class="row">
+        <div class="contianer-fluid">
+            <h4>Title: {{ object.title}}</h4>
+            <h4>Examiner: {{ object.user.first_name }} {{object.user.last_name}}</h4>
+            <h4>Duration: {{ object.duration}}</h4>
+            <h4>Marks: {{object.marks}} marks each</h4>
+            <h4>Pass Mark: {{ object.pass_mark}}</h4>
+            <h4>Date Created: {{ object.date_created }}</h4>
+            <h4>Description: {{ object.description }}</h4>
+            <h5>
+                {% if perms.quiz.add_quiz %}
+                <a href="{% url 'quiz:upload_question' quiz.slug%}">Upload Question</a>
+                <a href="{% url 'quiz:edit'  quiz.slug %}">Edit Quiz</a>
+                <a href="{% url 'quiz:delete' quiz.slug %}">Delete Quiz</a>
+                {% endif %}
+            </h5>                
+            {% if perms.quiz.take_quiz %}
+            <h5><a href="{% url 'quiz:take_quiz' quiz.category.slug quiz.slug %}">Take Quiz</a></h5>
+            {% endif %}
+        </div>    
+    </div>
+</div>
+{% endblock %}
+

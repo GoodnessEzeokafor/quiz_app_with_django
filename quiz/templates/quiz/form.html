@@ -1,0 +1,43 @@
+{% extends 'account/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+    {% if object %}
+        {{ block.super }} | Edit '{{bject.title}}'
+    {% else %}
+        {{ block.super }} | Create
+    {% endif %}
+{% endblock %}
+{% block head_extra %}
+    {{ form.media }}
+{% endblock %}
+{% block content %}
+
+<div id="page-wrapper">
+    <div class="row">
+        <div class="col-md-7">
+            <h3>
+            {% if object %}
+            Edit '{{ object.title }}' 
+            {% else %}
+            Create Quiz
+            {% endif %}
+            </h3>
+            <hr />
+            <form action="#" method="POST">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <button type="submit" class="btn btn-lg ">
+                {% if object %}    
+                    Edit
+                {% else %}
+                    Create
+                    {% endif %}
+            </button>
+            </form>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

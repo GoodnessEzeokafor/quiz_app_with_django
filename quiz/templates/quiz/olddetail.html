@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3>{{ quiz.title }} Details</h3>
+<p>
+    Title : {{ quiz.title }}
+</p>
+<p>
+        Examiner : {{ quiz.creator }}
+
+</p>
+<p>
+    Category : {{ quiz.category}}
+</p>
+<p>
+    Date Created : {{ quiz.date_created }}
+</p>
+<p>
+    Pass Mark : {{ quiz.pass_mark }}
+</p>
+<button type="button">
+    <a href="{% url 'quiz:take_quiz' quiz.category quiz.slug %}" onclick="alert('hello world')">
+        Take Quiz
+    </a>
+</button>
+{% endblock %}

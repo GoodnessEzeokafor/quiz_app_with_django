@@ -1,0 +1,23 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+django = "==2.0.6"
+django-allauth = "*"
+pillow = "*"
+django-tenant-schemas = "*"
+"psycopg2" = "==2.7.4"
+django-crispy-forms = "*"
+django-pagedown = "*"
+sendgrid = "*"
+gunicorn = "*"
+dj-database-url = "==0.5.0"
+whitenoise = "==3.3.1"
+django-markdown-deux = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.5"
